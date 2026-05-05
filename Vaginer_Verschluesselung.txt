@@ -1,0 +1,46 @@
+String vegenir_verschluesseln(String t, String s) {
+  String n = "";
+  t = t.toUpperCase();
+  s = s.toUpperCase();
+  int j = -1;
+  for (int i = 0; i<t.length(); i++) {
+    j += 1;
+    if (j >= s.length()) {
+      j = 0;
+    }
+    int x = s.charAt(j)-65;
+    char c = (char) (t.charAt(i)+x);
+    if (c > 90) {
+      c -= 26;
+    }
+    n+=c;
+  }
+  return n;
+}
+
+String vegenir_entschluesseln(String t, String s) {
+  String n = "";
+  t = t.toUpperCase();
+  s = s.toUpperCase();
+  int j = -1;
+  for (int i = 0; i<t.length(); i++) {
+    j += 1;
+    if (j >= s.length()) {
+      j = 0;
+    }
+    int x = s.charAt(j)-65;
+    char c = (char) (t.charAt(i)-x);
+    if (c < 65) {
+      c += 26;
+    }
+    n+=c;
+  }
+  return n;
+}
+
+void setup() {
+  String text = "UNUDFEHRQINWZAFKPAMOGEHKOHYFZOWZSEBGXFYFTANDQBNWQIHEMLYAZKIWZIAVQRBSFTYOGNXWDSWZAEHWFOYUTTYJPIYBGEHYETYNANCZZEHOMRMGECBGQNXSESXAQSIFZEMWXBYJPIYVACBKAVCWXEMKOHIFSEMWTEHZMTMAOHQMZDYJFEMGAFNKUECZDIHKSEMAOHNKOHCWZNUZQBYAPEGKOHFGESYOMRYAZGLGESYJPUHCXELOMLXMZDGAFTYFPALAZUHLQRYAZELSXTYFXIHVQWUJQIHTDUHFQNQWZNHMZDYJFAAJQCBLTECKEWUJSIHYPIYBGEHYETYHDIHRQSMAZHCFMUMAZDYFIAFVGNXKQTTLQSCUTAHVQNLSZDXWEKOWTLYFNROFZEHKGNXOQNHKUEFSZGY0QIFWTANLQNUZYSCWQIHWSOFVQNYCGGYDIALXEIYAZDCWTOYZQUHVRIHYEIYOUEXWDAOX";
+  String schluessel = "MAUS";
+  println(vegenir_entschluesseln(text, schluessel));
+  exit();
+}
